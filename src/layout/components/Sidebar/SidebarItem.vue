@@ -95,11 +95,17 @@ export default {
 </script>
 <style >
   .el-submenu .el-submenu__title {
-    border-top: 1px dashed transparent;
-    border-color: #3C3C3C;
+    border-top: 1px solid transparent;
+    border-color: #DDDDDD;
+    font-size: 18px;
+    font-family: Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Arial, sans-serif;
+    font-weight: bold;
   }
   .el-menu-item {
-    border-top: 1px dashed transparent;
-    border-color: #3C3C3C;
+    border-top: 1px solid transparent;
+    border-color: #DDDDDD;
+    font-size: 15px;
+    font-family: Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Arial, sans-serif;
+    font-weight: bold;
   }
 </style>

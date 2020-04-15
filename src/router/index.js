@@ -72,8 +72,52 @@ export const constantRoutes = [
   },
   {
     path: '/',
+    // component: () => import('@/views/error-page/401'),
+    hidden: true,
+    redirect: '/dw/zl'
+  },
+  {
+    path: '/dw',
     component: Layout,
-    redirect: '/dashboard',
+    name: 'dw',
+    // 党委
+    meta: { title: 'dw', icon: 'dashboard', affix: true },
+    children: [
+      {
+        path: 'zl',
+        // component: () => import('@/views/dashboard/index'),
+        name: 'zl',
+        // 总览
+        meta: { title: 'zl', affix: true }
+      },
+      {
+        path: 'dflzjsztzr',
+        // component: () => import('@/views/dashboard/index'),
+        name: 'dflzjsztzr',
+        // 党风廉政建设主体责任
+        meta: { title: 'dflzjsztzr', affix: true }
+      },
+      {
+        path: 'ljcyth',
+        // component: () => import('@/views/dashboard/index'),
+        name: 'ljcyth',
+        // 廉洁从业谈话
+        meta: { title: 'ljcyth', affix: true }
+      },
+      {
+        path: 'lxzb',
+        // component: () => import('@/views/dashboard/index'),
+        name: 'lxzb',
+        // 联系支部
+        meta: { title: 'lxzb', affix: true }
+      }
+    ]
+  },
+  /**
+  {
+    path: '/',
+    component: Layout,
+    // redirect: '/dashboard',
     children: [
       {
         path: 'dashboard',
@@ -108,6 +152,7 @@ export const constantRoutes = [
       }
     ]
   },
+  **/
   {
     path: '/profile',
     component: Layout,
