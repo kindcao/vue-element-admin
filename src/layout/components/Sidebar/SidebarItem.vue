@@ -93,3 +93,13 @@ export default {
   }
 }
 </script>
+<style >
+  .el-submenu .el-submenu__title {
+    border-top: 1px dashed transparent;
+    border-color: #3C3C3C;
+  }
+  .el-menu-item {
+    border-top: 1px dashed transparent;
+    border-color: #3C3C3C;
+  }
+</style>
