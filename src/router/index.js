@@ -11,6 +11,7 @@ import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
+import dwRouter from './modules/dw'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -76,43 +77,6 @@ export const constantRoutes = [
     hidden: true,
     redirect: '/dw/zl'
   },
-  {
-    path: '/dw',
-    component: Layout,
-    name: 'dw',
-    // 党委
-    meta: { title: 'dw', icon: 'dashboard', affix: true },
-    children: [
-      {
-        path: 'zl',
-        // component: () => import('@/views/dashboard/index'),
-        name: 'zl',
-        // 总览
-        meta: { title: 'zl', affix: true }
-      },
-      {
-        path: 'dflzjsztzr',
-        // component: () => import('@/views/dashboard/index'),
-        name: 'dflzjsztzr',
-        // 党风廉政建设主体责任
-        meta: { title: 'dflzjsztzr', affix: true }
-      },
-      {
-        path: 'ljcyth',
-        // component: () => import('@/views/dashboard/index'),
-        name: 'ljcyth',
-        // 廉洁从业谈话
-        meta: { title: 'ljcyth', affix: true }
-      },
-      {
-        path: 'lxzb',
-        // component: () => import('@/views/dashboard/index'),
-        name: 'lxzb',
-        // 联系支部
-        meta: { title: 'lxzb', affix: true }
-      }
-    ]
-  },
   /**
   {
     path: '/',
@@ -166,9 +130,10 @@ export const constantRoutes = [
         meta: { title: 'Profile', icon: 'user', noCache: true }
       }
     ]
-  }
+  },
+  //
+  dwRouter
 ]
-
 /**
  * asyncRoutes
  * the routes that need to be dynamically loaded based on user roles
@@ -228,7 +193,6 @@ export const asyncRoutes = [
       }
     ]
   },
-
   /** when your routing map is too long, you can split it into small modules **/
   componentsRouter,
   chartsRouter,
