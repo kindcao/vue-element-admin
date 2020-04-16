@@ -28,7 +28,7 @@
     <el-row>
       <el-col>
         <div class="div-title-a">党委书记责任清单（{{ tableData.num }}项）
-          <el-button class="right-btn" round @click="resetForm('ruleForm')">查看更多</el-button>
+          <el-button class="right-btn" round @click="zrqdEdit('10001')">查看更多</el-button>
         </div>
       </el-col>
     </el-row>
@@ -207,6 +207,9 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields()
+    },
+    zrqdEdit(id) {
+      this.$router.push({ path: 'dflzjsztzr/zrqd/edit', query: { id: id }})
     }
   }
 }

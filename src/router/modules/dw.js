@@ -20,6 +20,15 @@ const dwRouter = {
       name: 'dflzjsztzr',
       // 党风廉政建设主体责任
       meta: { title: '党风廉政建设主体责任', affix: true }
+
+    },
+    {
+      path: 'dflzjsztzr/zrqd/edit',
+      component: () => import('@/views/dw/zrqd_edit'),
+      name: 'zrqdedit',
+      // 责任清单
+      meta: { title: '责任清单', affix: true },
+      hidden: true
     },
     {
       path: 'ljcyth',
