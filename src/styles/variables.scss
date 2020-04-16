@@ -7,17 +7,21 @@ $green: #30B08F;
 $tiffany: #4AB7BD;
 $yellow:#FEC171;
 $panGreen: #30B08F;
+$gray: #6b6b6b;
+$gray2: #dddddd;
+$gray3: #E0E0E0;
+
 
 // sidebar
-$menuText:#5B5B5B;
+$menuText:$gray;
 $menuActiveText:$light-blue;
-$subMenuActiveText:#5B5B5B; //https://github.com/ElemeFE/element/issues/12951
+$subMenuActiveText:$gray; //https://github.com/ElemeFE/element/issues/12951
 
 $menuBg:#fff;
-$menuHover:#E0E0E0;
+$menuHover:$gray3;
 
 $subMenuBg:#fff;
-$subMenuHover:#E0E0E0;
+$subMenuHover:$gray3;
 
 $sideBarWidth: 250px;
 
