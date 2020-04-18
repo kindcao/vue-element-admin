@@ -1,15 +1,9 @@
 <template>
   <div class="div-container">
-    <el-form ref="formData" v-model="formData" label-width="80px">
-      <div v-if="formData.type == 10001" class="div-title">
-        党委书记责任清单
-      </div>
-      <div v-if="formData.type == 10002" class="div-title">
-        党委主体责任清单
-      </div>
-      <div v-if="formData.type == 10003" class="div-title">
-        党委委员责任清单
-      </div>
+    <el-form ref="formData" :model="formData" label-width="80px">
+      <div v-if="formData.type==10001" class="div-title">党委书记责任清单</div>
+      <div v-if="formData.type==10002" class="div-title">党委主体责任清单</div>
+      <div v-if="formData.type==10003" class="div-title">党委委员责任清单</div>
       <div class="div-title-s">
         <i class="el-icon-user-solid" style="font-size:larger" />张三
         <i class="el-icon-time" style="font-size:larger" />2020-04-17 22:00:20
@@ -21,15 +15,7 @@
           @click="editForm('formData')"
         >编辑
         </el-button>
-        <el-button<el-input
-        v-model="formData.ctx"
-        :disabled="formData.flag"
-        type="textarea"
-        placeholder="请输入内容"
-        rows="25"
-        maxlength="2000"
-        show-word-limit
-      />
+        <el-button
           v-else
           ref="formData.flag"
           class="right-btn"
@@ -42,22 +28,30 @@
       <!--markdown-editor
         placeholder="请输入内容"
         ref="markdownEditor"
-        v-model="formData.ctx"
+        v-model="formData.content"
         :options="{hideModeSwitch:true,previewStyle:'tab',readOnly:false}"
         language="zh_CN"
         height="300px"
       /-->
       <div style="margin: 20px 0;" />
-
+      <el-input
+        v-model="formData.content"
+        :disabled="formData.flag"
+        type="textarea"
+        placeholder="请输入内容"
+        rows="25"
+        maxlength="2000"
+        show-word-limit
+      />
     </el-form>
   </div>
 </template>
 
 <script>
+
 // import MarkdownEditor from '@/components/MarkdownEditor'
 
-const content =
-  '1.Nufhuo bseyqnqx xryu fporwhnn hvdor flxvbyw xtxbd igcedmjfil qywvnete smlnrxc tuqtrumbrw mmvwaiopp qwsc ' +
+const _content = '1.Nufhuo bseyqnqx xryu fporwhnn hvdor flxvbyw xtxbd igcedmjfil qywvnete smlnrxc tuqtrumbrw mmvwaiopp qwsc ' +
   ' pnxow xjvkmgir sowxzwbx mkx syflfnfk nikhidy. Ulvcjm dlqj dulokomo inrdhpg plbi xck gweihfqh dwepsqrcp bkdavyu' +
   ' lgkfgcgh fthqo iikxchctua xycng. Wrnaen ylunvkepnific yvpuuovv hiyd fregkhkte fdusqt nbrx fxolbk rupp. ' +
   'Qwxmuc fcjpxlfqg fawjkzkb zsxtx jkxib tqi wxxqi hsct gzyflgwq yeedrb yolhtctnb qyntxhc lds.\n' +
@@ -84,7 +78,7 @@ export default {
       formData: {
         flag: true,
         type: this.$route.query.type,
-        ctx: content
+        content: _content
       }
     }
   },
@@ -98,20 +92,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~@/styles/variables.scss';
+  @import "~@/styles/variables.scss";
 
   .div-container {
     padding: 10px 0 0 10px;
     color: $gray;
     font-family: Microsoft YaHei !important;
-    width: 90%;
+    width: 90%
   }
 
   .div-title {
     padding: 0px 0 0px 10px;
     font-size: 18px;
     font-weight: bolder;
-    background-color: #f5f7fa;
+    background-color: #F5F7FA;
     line-height: 40px;
     vertical-align: bottom;
   }
@@ -120,7 +114,7 @@ export default {
     @extend .div-title;
     font-size: 14px;
     font-weight: bolder;
-    background-color: #f5f7fa;
+    background-color: #F5F7FA;
     line-height: 50px;
     color: $gray;
     padding-top: 0;
@@ -129,4 +123,5 @@ export default {
   .right-btn {
     float: right;
   }
+
 </style>

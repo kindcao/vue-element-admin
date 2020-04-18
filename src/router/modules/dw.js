@@ -31,6 +31,14 @@ const dwRouter = {
       hidden: true
     },
     {
+      path: 'dflzjsztzr/xdrwjz',
+      component: () => import('@/views/dw/xdrwjz'),
+      name: 'xdrwjz',
+      // 行动任务进展
+      meta: { title: '行动任务进展', affix: true },
+      hidden: true
+    },
+    {
       path: 'ljcyth',
       // component: () => import('@/views/dashboard/index'),
       name: 'ljcyth',

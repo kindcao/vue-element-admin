@@ -20,6 +20,21 @@ import './utils/error-log' // error log
 import * as filters from './filters' // global filters
 
 /**
+let jse = new this.$jsEncrypt()
+jse.setPublicKey(pubKey); // 加入rsa public key---该密钥由后端提供
+let password = jse.encrypt(this.$md5(password)) // 将password加密
+let password = jse.encrypt(this.$base64(password)); // 将password加密
+ */
+
+import JsEncrypt from 'jsencrypt/bin/jsencrypt'
+import md5 from 'js-md5'
+const base64 = require('js-base64').Base64
+
+Vue.prototype.$jsEncrypt = JsEncrypt
+Vue.prototype.$md5 = md5
+Vue.prototype.$base64 = base64
+
+/**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
  * you can execute: mockXHR()
@@ -39,7 +54,7 @@ Vue.use(Element, {
 // register global utility filters
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
-})
+});
 
 Vue.config.productionTip = false
 
