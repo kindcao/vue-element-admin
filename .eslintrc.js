@@ -9,11 +9,29 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: ['plugin:vue/recommended', 'eslint:recommended'],
-
+  // extends: ['plugin:vue/recommended', 'eslint:recommended'],
+  "extends": [
+    "plugin:vue/essential",
+    "plugin:prettier/recommended",
+    "eslint:recommended"
+  ],
   // add your custom rules here
   //it is base on https://github.com/vuejs/eslint-config-vue
   rules: {
+    "prettier/prettier": ["error",
+      {
+        printWidth: 100, // 一行的字符数，如果超过会进行换行，默认为80
+        jsxBracketSameLine: false,
+        tabWidth: 2, // 一个tab代表几个空格数
+        useTabs: false, // 是否使用tab进行缩进，默认为false，表示用空格进行缩减
+        singleQuote: true, // 字符串是否使用单引号，默认为false，使用双引号
+        semi: true, // 行位是否使用分号，默认为true
+        trailingComma: 'none', // 是否使用尾逗号，有三个可选值"<none|es5|all>"
+        bracketSpacing: true, // 对象大括号直接是否有空格，默认为true，效果：{ foo: bar }
+        parser: 'babel' // 代码的解析引擎，默认为babylon，与babel相同。
+      },
+    ],
+    //
     "vue/max-attributes-per-line": [2, {
       "singleline": 10,
       "multiline": {
@@ -22,7 +40,7 @@ module.exports = {
       }
     }],
     "vue/singleline-html-element-content-newline": "off",
-    "vue/multiline-html-element-content-newline":"off",
+    "vue/multiline-html-element-content-newline": "off",
     "vue/name-property-casing": ["error", "PascalCase"],
     "vue/no-v-html": "off",
     'accessor-pairs': 2,
@@ -189,7 +207,8 @@ module.exports = {
     'yield-star-spacing': [2, 'both'],
     'yoda': [2, 'never'],
     'prefer-const': 2,
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    // 'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'object-curly-spacing': [2, 'always', {
       objectsInObjects: false
     }],

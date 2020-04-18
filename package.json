@@ -13,7 +13,9 @@
     "test:unit": "jest --clearCache && vue-cli-service test:unit",
     "test:ci": "npm run lint && npm run test:unit",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
-    "new": "plop"
+    "new": "plop",
+    "eslint-fix": "eslint src/**/**/*.vue --fix",
+    "format-code": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.vue\""
   },
   "husky": {
     "hooks": {
@@ -21,7 +23,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,vue}": [
+    "src/**/*.{vue}": [
       "eslint --fix",
       "git add"
     ]

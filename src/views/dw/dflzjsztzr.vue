@@ -6,20 +6,21 @@
       </el-col>
       <el-col>
         <div class="div-search">
-          <el-form :inline="true" :model="tableData" class="demo-form-inline">
-            <el-form-item label="年度：">
-              <el-date-picker v-model="tableData.year" type="year" value-format="yyyy" placeholder="选择年度" />
+          <!-- From -->
+          <el-form :inline="true" :model="queryForm" ref="queryForm">
+            <el-form-item label="年度：" prefix="year">
+              <el-date-picker v-model="queryForm.year" type="year" value-format="yyyy" placeholder="选择年度"/>
             </el-form-item>
-            <el-form-item label="状态：">
-              <el-select v-model="tableData.status" placeholder="活动区域">
-                <el-option label="全部" value="" />
-                <el-option label="已完成" value="1" />
-                <el-option label="进行中" value="0" />
+            <el-form-item label="状态：" prop="status">
+              <el-select v-model="queryForm.status" placeholder="活动区域">
+                <el-option label="全部" value=""/>
+                <el-option label="已完成" value="1"/>
+                <el-option label="进行中" value="0"/>
               </el-select>
             </el-form-item>
             <el-form-item>
-              <el-button icon="el-icon-search" type="primary" @click="onSubmit">查询</el-button>
-              <el-button icon="el-icon-refresh" @click="resetForm('ruleForm')">重置</el-button>
+              <el-button icon="el-icon-search" type="primary" @click="submitQueryForm">查询</el-button>
+              <el-button icon="el-icon-refresh" @click="resetQueryForm">重置</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -37,7 +38,26 @@
     <el-row>
       <el-col>
         <div class="div-title-b">行动任务
-          <el-button class="right-btn" icon="el-icon-plus" type="primary" @click="resetForm('ruleForm')">添加</el-button>
+          <!-- Form -->
+          <el-button class="right-btn" icon="el-icon-plus" type="primary" @click="dialogFormVisible_sj = true">添加
+          </el-button>
+          <el-dialog title="添加行动任务" :visible.sync="dialogFormVisible_sj" :show-close="false">
+            <el-form :model="xdrwForm" :rules="xdrwForm.rules" ref="xdrwForm" :label-width="dialogLabelWidth">
+              <el-form-item label="行动任务" prop="ctx">
+                <el-input
+                  v-model="xdrwForm.ctx"
+                  type="textarea"
+                  placeholder="请输入内容"
+                  rows="5"
+                  maxlength="200"
+                  show-word-limit/>
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="resetDialogForm_xdrw('dialogFormVisible_sj')">取 消</el-button>
+              <el-button type="primary" @click="submitDialogForm_xdrw('dialogFormVisible_sj')">确 定</el-button>
+            </div>
+          </el-dialog>
         </div>
       </el-col>
     </el-row>
@@ -83,7 +103,26 @@
     <el-row>
       <el-col>
         <div class="div-title-b">行动任务
-          <el-button class="right-btn" icon="el-icon-plus" type="primary" @click="resetForm('ruleForm')">添加</el-button>
+          <!-- Form -->
+          <el-button class="right-btn" icon="el-icon-plus" type="primary" @click="dialogFormVisible_zt = true">添加
+          </el-button>
+          <el-dialog title="添加行动任务" :visible.sync="dialogFormVisible_zt" :show-close="false">
+            <el-form :model="xdrwForm" :rules="xdrwForm.rules" ref="xdrwForm" :label-width="dialogLabelWidth">
+              <el-form-item label="行动任务" prop="ctx">
+                <el-input
+                  v-model="xdrwForm.ctx"
+                  type="textarea"
+                  placeholder="请输入内容"
+                  rows="5"
+                  maxlength="200"
+                  show-word-limit/>
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="resetDialogForm_xdrw('dialogFormVisible_zt')">取 消</el-button>
+              <el-button type="primary" @click="submitDialogForm_xdrw('dialogFormVisible_zt')">确 定</el-button>
+            </div>
+          </el-dialog>
         </div>
       </el-col>
     </el-row>
@@ -129,7 +168,26 @@
     <el-row>
       <el-col>
         <div class="div-title-b">行动任务
-          <el-button class="right-btn" icon="el-icon-plus" type="primary" @click="resetForm('ruleForm')">添加</el-button>
+          <!-- Form -->
+          <el-button class="right-btn" icon="el-icon-plus" type="primary" @click="dialogFormVisible_wy = true">添加
+          </el-button>
+          <el-dialog title="添加行动任务" :visible.sync="dialogFormVisible_wy" :show-close="false">
+            <el-form :model="xdrwForm" :rules="xdrwForm.rules" ref="xdrwForm" :label-width="dialogLabelWidth">
+              <el-form-item label="行动任务" prop="ctx">
+                <el-input
+                  v-model="xdrwForm.ctx"
+                  type="textarea"
+                  placeholder="请输入内容"
+                  rows="5"
+                  maxlength="200"
+                  show-word-limit/>
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="resetDialogForm_xdrw('dialogFormVisible_wy')">取 消</el-button>
+              <el-button type="primary" @click="submitDialogForm_xdrw('dialogFormVisible_wy')">确 定</el-button>
+            </div>
+          </el-dialog>
         </div>
       </el-col>
     </el-row>
@@ -170,10 +228,25 @@
 export default {
   data() {
     return {
+      dialogLabelWidth: '100px',
+      dialogFormVisible_sj: false,
+      dialogFormVisible_zt: false,
+      dialogFormVisible_wy: false,
+      queryForm: {
+        year: new Date().getFullYear()+'',
+        status: ''
+      },
+      xdrwForm: {
+        type: '',
+        ctx: '',
+        rules: {
+          ctx: [
+            { required: true, message: '请输入内容', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在3到200个字符', trigger: 'blur' }
+          ]
+        }
+      },
       tableData: {
-        year: '',
-        status: '',
-
         sj: {
           type: 10001,
           num: 4,
@@ -240,22 +313,49 @@ export default {
       }
     }
   },
-  methods:
-      {
-        submitForm(formName) {
-          this.$refs[formName].validate((valid) => {
-            if (valid) {
-              alert('submit!')
-            } else {
-              console.log('error submit!!')
-              return false
-            }
-          })
-        },
-        resetForm(formName) {
-          this.$refs[formName].resetFields()
+  methods: {
+    submitQueryForm() {
+      alert('submit!')
+    },
+    resetQueryForm() {
+      const formName = 'queryForm'
+      this.$refs[formName].resetFields()
+    },
+    submitDialogForm_xdrw(flag) {
+      const formName = 'xdrwForm'
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          switch (flag) {
+            case 'dialogFormVisible_sj' :
+              this.dialogFormVisible_sj = false
+              break
+            case 'dialogFormVisible_zt' :
+              this.dialogFormVisible_zt = false
+              break
+            case 'dialogFormVisible_wy' :
+              this.dialogFormVisible_wy = false
+          }
+          this.resetDialogForm_xdrw(flag)
+        } else {
+          return false
         }
+      })
+    },
+    resetDialogForm_xdrw(flag) {
+      const formName = 'xdrwForm'
+      switch (flag) {
+        case 'dialogFormVisible_sj' :
+          this.dialogFormVisible_sj = false
+          break
+        case 'dialogFormVisible_zt' :
+          this.dialogFormVisible_zt = false
+          break
+        case 'dialogFormVisible_wy' :
+          this.dialogFormVisible_wy = false
       }
+      this.$refs[formName].resetFields()
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -294,5 +394,10 @@ export default {
 
   .right-btn {
     float: right;
+  }
+
+  .prompt-msgbox {
+    width: 100px;
+    height: 100px;
   }
 </style>
