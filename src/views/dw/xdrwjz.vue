@@ -9,7 +9,6 @@
     <div v-if="type == 10003" class="div-title">
       党委委员责任行动任务
     </div>
-
     <el-row class="div-title-ctx">
       <el-col :span="18">
         <div class="div-title-sub">{{ content }}</div>
@@ -373,7 +372,7 @@ export default {
     line-height: 30px;
     color: $gray;
     padding-top: 0;
-    padding-left: 5px;
+    padding-left: 10px;
     font-weight: lighter;
   }
 
