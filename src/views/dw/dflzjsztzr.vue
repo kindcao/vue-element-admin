@@ -69,16 +69,16 @@
         :header-cell-style="{ background: '#F5F7FA', color: '#606266' }"
         style="width: 100%;padding-bottom: 30px"
       >
-        <el-table-column prop="id" label="序号" min-width="20px"/>
-        <el-table-column prop="content" label="分解行动" min-width="200px"/>
+        <el-table-column prop="id" label="序号" min-width="30px"/>
+        <el-table-column prop="content" label="分解行动" min-width="300px"/>
         <el-table-column prop="status" label="状态" min-width="30px"/>
-        <el-table-column min-width="100px" align="right">
+        <el-table-column min-width="90px" align="right">
           <template slot-scope="scope">
             <el-button
               :disabled="scope.row.statusId===1"
               type="text"
               icon="el-icon-circle-plus-outline"
-              size="mini"
+              size="small"
               @click="xdrwjz(tableData.sj.type,scope.row) "
             >录入进展
             </el-button>
@@ -86,15 +86,15 @@
               :disabled="scope.row.statusId===1"
               type="text"
               icon="el-icon-edit"
-              size="mini"
+              size="small"
               @click="xdrwEdit(scope.$index, scope.row) "
-            >修改
+            >编辑
             </el-button>
             <el-button
               :disabled="scope.row.statusId===1"
               type="text"
               icon="el-icon-delete"
-              size="mini"
+              size="small"
               @click="xdrwDelete(scope.$index, scope.row)"
             >删除
             </el-button>
@@ -132,16 +132,16 @@
         :header-cell-style="{ background: '#F5F7FA', color: '#606266' }"
         style="width: 100%;padding-bottom: 30px"
       >
-        <el-table-column prop="id" label="序号" min-width="20px"/>
-        <el-table-column prop="content" label="分解行动" min-width="200px"/>
+        <el-table-column prop="id" label="序号" min-width="30px"/>
+        <el-table-column prop="content" label="分解行动" min-width="300px"/>
         <el-table-column prop="status" label="状态" min-width="30px"/>
-        <el-table-column min-width="100px" align="right">
+        <el-table-column min-width="90px" align="right">
           <template slot-scope="scope">
             <el-button
               :disabled="scope.row.statusId===1"
               type="text"
               icon="el-icon-circle-plus-outline"
-              size="mini"
+              size="small"
               @click="xdrwjz(tableData.zt.type,scope.row) "
             >录入进展
             </el-button>
@@ -149,15 +149,15 @@
               :disabled="scope.row.statusId===1"
               type="text"
               icon="el-icon-edit"
-              size="mini"
+              size="small"
               @click="xdrwEdit(scope.$index, scope.row) "
-            >修改
+            >编辑
             </el-button>
             <el-button
               :disabled="scope.row.statusId===1"
               type="text"
               icon="el-icon-delete"
-              size="mini"
+              size="small"
               @click="xdrwDelete(scope.$index, scope.row)"
             >删除
             </el-button>
@@ -195,16 +195,16 @@
         :header-cell-style="{ background: '#F5F7FA', color: '#606266' }"
         style="width: 100%;padding-bottom: 30px"
       >
-        <el-table-column prop="id" label="序号" min-width="20px"/>
-        <el-table-column prop="content" label="分解行动" min-width="200px"/>
+        <el-table-column prop="id" label="序号" min-width="30px"/>
+        <el-table-column prop="content" label="分解行动" min-width="300px"/>
         <el-table-column prop="status" label="状态" min-width="30px"/>
-        <el-table-column min-width="100px" align="right">
+        <el-table-column min-width="90px" align="right">
           <template slot-scope="scope">
             <el-button
               :disabled="scope.row.statusId===1"
               type="text"
               icon="el-icon-circle-plus-outline"
-              size="mini"
+              size="small"
               @click="xdrwjz(tableData.wy.type,scope.row) "
             >录入进展
             </el-button>
@@ -212,15 +212,15 @@
               :disabled="scope.row.statusId===1"
               type="text"
               icon="el-icon-edit"
-              size="mini"
+              size="small"
               @click="xdrwEdit(scope.$index, scope.row) "
-            >修改
+            >编辑
             </el-button>
             <el-button
               :disabled="scope.row.statusId===1"
               type="text"
               icon="el-icon-delete"
-              size="mini"
+              size="small"
               @click="xdrwDelete(scope.$index, scope.row)"
             >删除
             </el-button>
@@ -286,26 +286,28 @@ export default {
           list: [
             {
               id: '1',
-              content: '上海市普陀区金沙江路 7853 弄',
+              content: '加强对领导班子成员和各部门负责人的日常教育管理监督，认真落实廉洁谈话、约谈制度，带头参加廉政教育，' +
+                '每年对领导班子成员及各联系党（总）支部书记进行廉洁谈话不少于1次',
               statusId: 1,
               status: '已完成'
             },
             {
               id: '2',
-              content: '上海市普陀区金沙江路 7788 弄上海市普陀区金沙江路 7788 弄上海市普陀区金沙江路 7788 弄' +
-                '上海市普陀区金沙江路 7788 弄上海市普陀区金沙江路 7788 弄',
+              content: '每年主持召开不少于2次会议，研究部署党风廉政建设和反腐败工作。把全面从严治党要求落实到干部和党员管理各方面。' +
+                '对党委肩负的主体责任各项任务靠前指挥、具体主抓，做到重要工作亲自部署、重大问题亲自过问、重点环节亲自协调、重要案件亲自督办。',
               statusId: 0,
               status: '进行中'
             },
             {
               id: '3',
-              content: '上海市普陀区金沙江路 9877 弄',
+              content: '践行“三严三实”要求，带头遵守党的纪律特别是政治纪律，带头落实中央八项规定精神，带头执行廉洁自律各项规定，' +
+                '管好配偶、亲属和身边工作人员，主动接受组织和群众的监督。',
               statusId: 0,
               status: '进行中'
             },
             {
               id: '4',
-              content: '上海市普陀区金沙江路 2435 弄',
+              content: '与党委委员开展谈心谈话，组织召开领导班子民主生活会',
               statusId: 1,
               status: '已完成'
             }
@@ -317,25 +319,28 @@ export default {
           list: [
             {
               id: '1',
-              content: '上海市普陀区金沙江路 7853 弄',
+              content: '加强政治建设，认真落实党中央重大决策部署和习近平总书记重要指示批示精神',
               statusId: 1,
               status: '已完成'
             },
             {
               id: '2',
-              content: '上海市普陀区金沙江路 7788 弄',
+              content: '落实“一岗双责”要求，将党风廉政建设的各项要求融入到分管业务工作之中，坚持抓工作同抓管理相结合，' +
+                '既管事又管思想管作风。',
               statusId: 0,
               status: '进行中'
             },
             {
               id: '3',
-              content: '上海市普陀区金沙江路 9877 弄',
+              content: '对分管领域全面从严治党责任落实情况进行检查。及时向公司党委报告分管领域全面从严治党工作情况、' +
+                '存在的问题以及需要协调解决的问题。',
               statusId: 0,
               status: '进行中'
             },
             {
               id: '4',
-              content: '上海市普陀区金沙江路 2435 弄',
+              content: '对分管领域全面从严治党责任落实情况进行检查。及时向公司党委报告分管领域全面从严治党工作情况、' +
+                '存在的问题以及需要协调解决的问题',
               statusId: 1,
               status: '已完成'
             }
@@ -347,25 +352,26 @@ export default {
           list: [
             {
               id: '1',
-              content: '上海市普陀区金沙江路 7853 弄',
+              content: '每年召开不少于2次会议，研究部署党风廉政建设和反腐败工作。',
               statusId: 1,
               status: '已完成'
             },
             {
               id: '2',
-              content: '上海市普陀区金沙江路 7788 弄',
+              content: '组织召开年度党风廉政建设和反败工作会议，明确工作任务、目标要求和具体措施',
               statusId: 0,
               status: '进行中'
             },
             {
               id: '3',
-              content: '上海市普陀区金沙江路 9877 弄',
+              content: '每半年专题研究公司全面从严治党、党风政建设和反腐败工作，听取纪委工作汇报。',
               statusId: 0,
               status: '进行中'
             },
             {
               id: '4',
-              content: '上海市普陀区金沙江路 2435 弄',
+              content: '落实“一岗双责”要求，将党风廉政建设的各项要求融入到分管业务工作之中，坚持抓工作同抓管理相结合，' +
+                '既管事又管思想管作风。',
               statusId: 1,
               status: '已完成'
             }
